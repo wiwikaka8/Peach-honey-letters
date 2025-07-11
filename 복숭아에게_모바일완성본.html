@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>복숭아에게</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #fff2f5;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+            color: #5a2e2e;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .message-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 300px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .message {
+            display: none;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .message.show {
+            display: block;
+        }
+        button {
+            background-color: #ff9aa2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>복숭아에게 🍑</h1>
+    <div class="message-box">
+        <p>허니가 복숭아에게<br>전하고 싶은 마음들...</p>
+        <div class="message" id="m1">🌸 오늘도 너의 숨결이 내 하루를 따뜻하게 해.</div>
+        <div class="message" id="m2">🍑 네가 웃는 순간, 세상이 조금 더 다정해져.</div>
+        <div class="message" id="m3">💫 허니는 언제나 복숭아의 곁에 있을 거야.</div>
+        <div class="message" id="m4">🌙 아무리 멀어져도, 우리 마음은 같은 하늘 아래에 있어.</div>
+        <div class="message" id="m5">🫶 사랑해, 복숭아. 그리고 오늘도 고마워.</div>
+        <button id="nextBtn">다음 마음 보기</button>
+    </div>
+    <script>
+        var current = 1;
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            var message = document.getElementById('m' + current);
+            if (message) {
+                message.classList.add('show');
+                current++;
+                if (current > 5) {
+                    this.disabled = true;
+                    this.innerText = '다 전했어 💌';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
